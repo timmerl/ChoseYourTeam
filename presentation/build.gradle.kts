@@ -54,6 +54,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.koin.compose)
     implementation(libs.koin.anotation)
+    implementation(libs.coil)
 
     testImplementation(libs.junit)
 }

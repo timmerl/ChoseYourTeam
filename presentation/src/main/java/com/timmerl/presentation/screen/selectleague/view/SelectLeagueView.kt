@@ -19,7 +19,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.timmerl.presentation.R
 import com.timmerl.presentation.screen.selectleague.model.LeagueScreenUiModel
 import com.timmerl.presentation.screen.selectleague.model.LeagueUiModel
 
@@ -29,7 +31,7 @@ fun SelectLeagueView(
     modifier: Modifier = Modifier,
     uiModel: LeagueScreenUiModel.LeaguesUiModel,
     onAutocompleteValueChange: (String) -> Unit,
-    onLeagueClick: (id: String) -> Unit
+    onLeagueClick: (name: String) -> Unit
 ) {
     Box(modifier.fillMaxSize()) {
         AutoCompleteField(
@@ -47,7 +49,7 @@ fun AutoCompleteField(
     modifier: Modifier = Modifier,
     uiModel: LeagueScreenUiModel.LeaguesUiModel,
     onAutocompleteValueChange: (String) -> Unit,
-    onClick: (id: String) -> Unit
+    onClick: (name: String) -> Unit
 ) {
 
     var text by remember { mutableStateOf("") }
@@ -64,13 +66,13 @@ fun AutoCompleteField(
                 onAutocompleteValueChange(it)
             },
             singleLine = true,
-            label = { Text("Choisi ta ligue") },
+            label = { Text(stringResource(id = R.string.select_league_selection_hint)) },
         )
         AnimatedVisibility(visible = expanded) {
             LazyColumn(modifier = Modifier.fillMaxSize()) {
                 items(uiModel.leagues) { league ->
                     LeagueItem(
-                        modifier = Modifier.clickable { onClick(league.id) },
+                        modifier = Modifier.clickable { onClick(league.name) },
                         leagueUiModel = league,
                     )
                     Divider(color = Color.LightGray)

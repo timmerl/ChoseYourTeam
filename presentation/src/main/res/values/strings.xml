@@ -1,3 +1,6 @@
 <resources>
-    <string name="select_league_loading">Chargement des ligues</string>
+    <string name="select_league_loading">Chargement de toutes les ligues en cours</string>
+    <string name="select_league_selection_hint">Selectionne ta ligue</string>
+    <string name="show_teams_loading">Chargement de ta ligue en cours</string>
+    <string name="show_teams_empty">Je ne trouve pas d\'équipes dans cette league</string>
 </resources>

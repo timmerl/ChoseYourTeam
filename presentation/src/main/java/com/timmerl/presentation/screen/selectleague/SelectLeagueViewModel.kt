@@ -2,7 +2,7 @@ package com.timmerl.presentation.screen.selectleague
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.timmerl.domain.usecase.FilterLeaguesByNameUseCase
+import com.timmerl.domain.usecase.GetLeaguesUseCase
 import com.timmerl.presentation.screen.selectleague.mapper.LeagueUiModelMapper
 import com.timmerl.presentation.screen.selectleague.model.LeagueScreenUiModel
 import kotlinx.coroutines.Dispatchers
@@ -14,7 +14,7 @@ import org.koin.core.annotation.InjectedParam
 
 class LeaguesViewModel(
     @InjectedParam
-    private val autocompleteUseCase: FilterLeaguesByNameUseCase,
+    private val autocompleteUseCase: GetLeaguesUseCase,
     @InjectedParam
     private val uiModelMapper: LeagueUiModelMapper,
 ) : ViewModel() {

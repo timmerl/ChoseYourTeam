@@ -11,13 +11,13 @@ import org.mockito.MockitoAnnotations
 import org.mockito.kotlin.given
 import kotlin.test.assertEquals
 
-class FilterLeaguesByNameUseCaseImplTest {
+class GetLeaguesUseCaseImplTest {
 
     @Mock
     lateinit var repository: LeagueRepository
 
     @InjectMocks
-    lateinit var useCase: FilterLeaguesByNameUseCaseImpl
+    lateinit var useCase: GetLeaguesUseCaseImpl
 
     @Before
     fun setUp() {

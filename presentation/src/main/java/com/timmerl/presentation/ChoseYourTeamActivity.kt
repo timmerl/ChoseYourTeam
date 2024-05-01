@@ -13,8 +13,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.timmerl.presentation.screen.selectleague.view.SelectLeagueScreen
-import com.timmerl.presentation.screen.showteams.ShowTeamsScreen
+import com.timmerl.presentation.screen.showteams.ShowTeamsViewModel
+import com.timmerl.presentation.screen.showteams.view.ShowTeamsScreen
 import com.timmerl.presentation.theme.ChoseYourLeagueTheme
+import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class ChoseYourTeamActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,14 +37,17 @@ class ChoseYourTeamActivity : ComponentActivity() {
                         }
 
                         composable(
-                            route = "showTeams/{leagueId}",
+                            route = "showTeams/{leagueName}",
                             arguments = listOf(
-                                navArgument("leagueId") {
+                                navArgument("leagueName") {
                                     type = NavType.StringType
                                 }
                             )
                         ) { backstackEntry ->
-                            ShowTeamsScreen(leagueId = backstackEntry.arguments?.getString("leagueId"))
+                            val viewModel: ShowTeamsViewModel = getViewModel()
+                            val leagueName = backstackEntry.arguments?.getString("leagueName") ?: ""
+                            viewModel.init(leagueName)
+                            ShowTeamsScreen(viewModel = viewModel)
                         }
                     }
                 }

@@ -20,6 +20,7 @@ mockitoVersion = "5.11.0"
 mockitoKotlinVersion = "5.3.1"
 kotlinTestVersion = "1.9.21"
 coroutineTestVersion = "1.8.0"
+coilVersion = "2.6.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -46,12 +47,12 @@ koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koinV
 koin-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koinVersion" }
 koin-anotation = { group = "io.insert-koin", name = "koin-annotations", version.ref = "koinAnnotationVersion" }
 koin-ksp = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koinKspVersion" }
-koin-test = { group = "io.insert-koin", name = "koin-test-junit4", version.ref = "koinVersion"}
-squareup-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofitVersion"}
-squareup-gson = { group = "com.squareup.retrofit2", name = "converter-gson",  version.ref = "retrofitVersion"}
-mockito-core = { group = "org.mockito", name = "mockito-core",  version.ref = "mockitoVersion"}
-mockito-kotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin",  version.ref = "mockitoKotlinVersion"}
-
+koin-test = { group = "io.insert-koin", name = "koin-test-junit4", version.ref = "koinVersion" }
+squareup-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofitVersion" }
+squareup-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitVersion" }
+mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockitoVersion" }
+mockito-kotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin", version.ref = "mockitoKotlinVersion" }
+coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilVersion" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

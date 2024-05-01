@@ -5,10 +5,10 @@ import com.timmerl.domain.repository.LeagueRepository
 import org.koin.core.annotation.InjectedParam
 
 
-class FilterLeaguesByNameUseCaseImpl(
+class GetLeaguesUseCaseImpl(
     @InjectedParam
     private val leagueRepository: LeagueRepository
-) : FilterLeaguesByNameUseCase {
+) : GetLeaguesUseCase {
     override suspend operator fun invoke(search: String): List<LeagueModel> {
         return leagueRepository.getAllLeagues()
             .filter { league ->
