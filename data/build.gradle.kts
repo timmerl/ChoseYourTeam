@@ -35,7 +35,14 @@ android {
 dependencies {
 
     implementation(project(":domain"))
+    implementation(libs.squareup.retrofit)
+    implementation(libs.squareup.gson)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.koin.anotation)
+
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.kotlin)
     testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.kotlin.test)
+    testImplementation(libs.kotlin.coroutine.test)
 }

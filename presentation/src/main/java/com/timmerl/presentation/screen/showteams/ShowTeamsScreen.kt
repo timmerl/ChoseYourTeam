@@ -9,11 +9,12 @@ import androidx.compose.ui.Modifier
 
 @Composable
 fun ShowTeamsScreen(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    leagueId: String?
 ) {
     Column(modifier = modifier.fillMaxSize()) {
         Text(
-            text = "This is Sparta",
+            text = "This is Sparta -> id = $leagueId",
             modifier = Modifier
         )
     }

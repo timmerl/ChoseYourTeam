@@ -54,6 +54,7 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.koin.compose)
     implementation(libs.koin.anotation)
+    implementation(libs.koin.test)
     ksp(libs.koin.ksp)
 
 }

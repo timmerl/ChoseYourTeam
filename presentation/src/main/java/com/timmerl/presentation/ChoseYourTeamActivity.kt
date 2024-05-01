@@ -6,14 +6,13 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.timmerl.presentation.screen.selectleague.SelectLeagueScreen
+import androidx.navigation.navArgument
+import com.timmerl.presentation.screen.selectleague.view.SelectLeagueScreen
 import com.timmerl.presentation.screen.showteams.ShowTeamsScreen
 import com.timmerl.presentation.theme.ChoseYourLeagueTheme
 
@@ -30,33 +29,24 @@ class ChoseYourTeamActivity : ComponentActivity() {
 
                     NavHost(navController = navController, startDestination = "selectLeague") {
                         composable("selectLeague") {
-                            SelectLeagueScreen {
-                                navController.navigate("showTeam")
+                            SelectLeagueScreen { leagueId ->
+                                navController.navigate("showTeams/$leagueId")
                             }
                         }
 
-                        composable("showTeam") {
-                            ShowTeamsScreen()
+                        composable(
+                            route = "showTeams/{leagueId}",
+                            arguments = listOf(
+                                navArgument("leagueId") {
+                                    type = NavType.StringType
+                                }
+                            )
+                        ) { backstackEntry ->
+                            ShowTeamsScreen(leagueId = backstackEntry.arguments?.getString("leagueId"))
                         }
                     }
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ChoseYourLeagueTheme {
-        Greeting("Android")
     }
 }
